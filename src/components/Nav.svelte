@@ -103,13 +103,13 @@
 		{#if showMenu}
 		<div transition:fade class:black={ segment === 'projects' }>
 			<li><a aria-current="{segment === 'start' ? 'page' : undefined}" href="start">start</a></li>
-			<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-			<li><a aria-current="{segment === 'animations' ? 'page' : undefined}" href="animation">animation</a></li>
+<!-- 			<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li> -->
+<!-- 			<li><a aria-current="{segment === 'animations' ? 'page' : undefined}" href="animation">animation</a></li> -->
 			<li><a aria-current="{segment === 'intro' ? 'page' : undefined}" href="intro">intro</a></li>
 			<li><a aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a></li>
 			<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 			     the blog data when we hover over the link or tap it on a touchscreen -->
-			<li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li>
+<!-- 			<li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li> -->
 		</div>
 		{/if}
 	</ul>

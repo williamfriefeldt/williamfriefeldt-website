@@ -2,6 +2,7 @@
 
   	import { fade } from "svelte/transition";
   	import { onMount } from "svelte";
+  	import FaArrowAltCircleDown from 'svelte-icons/fa/FaArrowAltCircleDown.svelte'
 
   	let showIntro = true;
 
@@ -45,13 +46,36 @@
 		padding-left: 50px;
 	}
 
+	.icon {
+		position: fixed;
+		bottom: 0;
+		height: 50px;
+		width: 100vw;
+		margin-bottom:10px;
+    	z-index: 1;
+	}	
+
+	.icon:hover {
+		height: 70px;
+		padding-top: 20px;
+		cursor: pointer;
+		color: #333;
+	}
+
+	.intro-container {
+		margin-top: 70px;
+	}
+
+	.icon :global( svg ) {
+		fill: white;
+	}
+
 </style>
 
 <svelte:head>
 	<title>WF</title>
 </svelte:head>
 
-<!-- {#if showIntro} -->
 	<row style="height:100vh">
 		<div class="col-1"></div>
 
@@ -64,4 +88,9 @@
 
 		</div>
 	</row>
-<!-- {/if} -->
+
+	<div class="icon">
+		<a href="/projects">
+			<FaArrowAltCircleDown />
+		</a>
+	</div>

@@ -1,7 +1,15 @@
 <script>
 
+	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
 	import Computer from "../components/Computer.svelte";
 	import Phone from "../components/Phone.svelte";
+	import IPad from "../components/iPad.svelte";
+
+	let showItems = false;
+
+	onMount( () => showItems = true );
 
 </script>
 
@@ -29,19 +37,29 @@
 
 <div class="projects-container">
 
-	<Phone />
-
-	<div class="projects-info-container">
-		<div class="projects-info">
-			<p>
-				I've been developing web applications for busniess, for government, for startup
-				and of course for fun. Using different technologies, a creative mind and talented 
-				colleagues I've manage to create smooth and responsive applications for both desktop 
-				and mobile. I will now share some of my most successful projects!
-			</p>
+	{#if showItems}
+		<div transition:fade|local="{{ duration: 1000, delay: 2000 }}">
+			<Phone/>
 		</div>
-	</div>
 
-	<Computer />
+		<div class="projects-info-container"
+			 transition:fade|local="{{ duration: 1000, delay: 1000 }}">
+			<div class="projects-info">
+				<p>
+					I've been developing web applications for busniess, for government, for startup
+					and of course for fun. Using different technologies, a creative mind and talented 
+					colleagues I've manage to create smooth and responsive applications for both desktop 
+					and mobile. I will now share some of my most successful projects!
+				</p>
+			</div>
+		</div>
 
+		<div transition:fade|local="{{ duration: 1000, delay: 4000 }}">
+			<IPad />
+		</div>
+
+		<div transition:fade|local="{{ duration: 1000, delay: 3000 }}">
+			<Computer />
+		</div>
+	{/if}
 </div>

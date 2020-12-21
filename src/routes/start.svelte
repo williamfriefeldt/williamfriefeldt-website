@@ -17,7 +17,7 @@
 	let showStart= false;
 	let animationDone = false;
 
-	let waitTime = 50;
+	let waitTime = 200;
 
   	onMount( () => showStart = true );
 

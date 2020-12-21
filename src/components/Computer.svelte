@@ -8,7 +8,7 @@
 
 	.laptop-container {
 	    position: absolute;
-	    bottom: 20px;
+	    bottom: 70px;
 	    right: 30px;
 	    z-index: -1;
 	    cursor: pointer;
