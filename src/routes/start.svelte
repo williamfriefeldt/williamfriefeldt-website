@@ -1,0 +1,141 @@
+<script>
+
+  	import { fade } from "svelte/transition";
+  	import { onMount } from "svelte";
+
+  	import FaArrowAltCircleDown from 'svelte-icons/fa/FaArrowAltCircleDown.svelte'
+  	import * as animateScroll from "svelte-scrollto";
+	import GridMenu from '../components/GridMenu.svelte';
+
+	/* Text variables */
+	let introText = [
+		{ text: 'Hi there!', wait: 0},
+		{ text: 'I\'m William Friefeldt.', wait: 12},
+		{ text: 'And this is my website.', wait: 34}
+	];
+
+	let showStart= false;
+	let animationDone = false;
+
+	let waitTime = 50;
+
+  	onMount( () => showStart = true );
+
+	let pageTitle = 'William Friefeldt';
+
+	let segment = '';
+
+</script>
+
+<style lang="scss">
+	
+	@import '../../static/_variables.scss';
+
+	.start-page-background {
+		background-image: url("../start-page-background.jpg");
+		height: 100%;
+		width: 100%;
+		/* Center and scale the image nicely */
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;	
+	}
+
+	.intro-text-container {
+		position: sticky;
+		top: 125px;
+		h1 {
+			margin-top: 0;
+			width: 100%;
+			text-shadow: 2px 2px black;
+			color: white;
+			text-align: center;
+			padding-top: 20px;
+			font-weight: 300;
+		}
+	}
+
+	.icon {
+		position: fixed;
+		bottom: 0;
+		height: 50px;
+		width: 100vw;
+		margin-bottom:10px;
+    	z-index: 1;
+	}	
+
+	.icon:hover {
+		height: 70px;
+		padding-top: 20px;
+		cursor: pointer;
+		color: #333;
+	}
+
+	.intro-container {
+		margin-top: 70px;
+	}
+
+	.icon :global( svg ) {
+		fill: white;
+	}
+
+</style>
+
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
+
+	<div style="height:105vh">
+		<div class="start-page-background">
+
+			<div class="intro-text-container">
+				{#each introText as introLine, j}
+					<h1>
+						{#each introLine.text as char, i}
+						{#if showStart}
+							<span transition:fade|local="{{ delay: waitTime + waitTime * i + introLine.wait * waitTime }}"
+								on:introend="{() => {
+									if(i === 22) animationDone = true;
+								}}"
+							>
+								{char[0]}
+							</span>
+							{/if}
+						{/each}
+					</h1>
+				{/each}		
+			</div>
+
+		</div>	
+	</div>
+
+	{#if animationDone}
+		<div class="icon">
+			<a href="/intro">
+				<FaArrowAltCircleDown />
+			</a>
+		</div>
+	{/if}
+	
+<!-- <div class="icon" 
+		 class:up="{scrollUp === true }"
+		 on:click={() => {
+		 	/*scrollUp = !scrollUp;
+		 	if( scrollUp ) {
+		 		animateScroll.scrollTo({ element:'.intro-container' });
+		 	} else {
+		 		animateScroll.scrollToTop();
+		 	}*/
+		 }}
+	>
+		
+	</div> --> 
+
+<!-- {#if showIntro}
+
+	<div class="intro-container" transition:fade= {{ duration: 3000 }}>
+		<GridMenu class="intro" />
+	</div>
+
+
+{/if} -->
