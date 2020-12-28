@@ -14,6 +14,9 @@
 </script>
 
 <style lang="scss">
+
+	@import '../../static/_variables.scss';
+
 	.projects-info-container {
 		display: flex;
  		align-items: center;
@@ -22,15 +25,23 @@
 	.projects-info{
 		padding: 20px;
 		width: 400px;
-		text-align: justify;
-  		-moz-text-align-last: justify; 
-  		text-align-last: justify;
   		box-shadow: 0 5px 20px 0 rgba(0,0,0,.2);
   		height: 113px;
   		margin-top: 200px;
   		p {
   			margin-block-start: 0;
   		}
+	}
+
+	@media( max-width: $tablet-width ) {
+		.projects-info {
+		    width: auto;
+		    margin-top: 50px;
+		    margin-left: 145px;
+		    box-shadow: none;
+		    margin-right: 10px;
+		    font-size: 3.5vw;
+		}
 	}
 </style>
 

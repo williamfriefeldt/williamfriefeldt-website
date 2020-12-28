@@ -1,7 +1,7 @@
 <script>
 
 	import MdMenu from 'svelte-icons/md/MdMenu.svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 
 	export let segment;
 
@@ -10,6 +10,9 @@
 </script>
 
 <style lang="scss">
+
+	@import '../../static/_variables.scss';
+
 	nav {
 		font-weight: 300;
 		padding: 0 1em;
@@ -89,28 +92,84 @@
 		}
 	}
 
+	.menu-icon-mobile {
+		display: none;
+	}
+
+	.options-mobile {
+		display: none;
+	}
+
+	@media( max-width: $tablet-width ) {
+		.hide-on-mobile {
+			display: none;
+		}
+		.options-not-mobile {
+			display: none;
+		}
+		.options-mobile {
+			display: block;
+		}
+		.mobile-menu{
+			.hide-on-mobile {
+				display: block;
+			}
+			background-color: black;
+			opacity: 0.5;
+			height: 100vh;
+			width: 400vh;
+			margin-left: -1000px;
+			padding-left: 1000px;
+			padding-top: 15px;
+			li {
+				display: contents;
+				.menu-icon-mobile {
+					display: contents;
+					margin-top: 0px;
+				}
+				.menu-icon {
+					display: none;
+				}
+			}
+		}
+	}
+
 </style>
 
 <nav>
-	<ul >
-		<li on:click={ () => { showMenu = !showMenu; }} >
+	<ul class:mobile-menu={ showMenu }>
+		<li on:click={ () => showMenu = !showMenu } >
 			<div class="menu-icon" 
 				 class:up={ showMenu === true }
 				 class:black={ segment === 'projects' }>
 				<MdMenu />
 			</div>
+			<div class="menu-icon-mobile">
+				<MdMenu />
+			</div>
 		</li>
+
 		{#if showMenu}
-		<div transition:fade class:black={ segment === 'projects' }>
-			<li><a aria-current="{segment === 'start' ? 'page' : undefined}" href="start">start</a></li>
-<!-- 			<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li> -->
-<!-- 			<li><a aria-current="{segment === 'animations' ? 'page' : undefined}" href="animation">animation</a></li> -->
-			<li><a aria-current="{segment === 'intro' ? 'page' : undefined}" href="intro">intro</a></li>
-			<li><a aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a></li>
-			<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-			     the blog data when we hover over the link or tap it on a touchscreen -->
-<!-- 			<li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li> -->
-		</div>
+			<div class="options-not-mobile" 	 
+				 class:black={ segment === 'projects' }
+				 transition:fade >
+					<li><a aria-current="{segment === 'start' ? 'page' : undefined}" href="start">start</a></li>
+					<li><a aria-current="{segment === 'intro' ? 'page' : undefined}" href="intro">intro</a></li>
+					<li><a aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a></li>
+			</div>
+
+			<div class="options-mobile"
+				 in:fly="{{ y: -50, duration: 2500 }}"
+				 out:fly="{{ y: 50, duration: 2500 }}"
+				 on:click={ () => showMenu = !showMenu }>
+				 <div class="hide-on-mobile">
+					<li><a aria-current="{segment === 'start' ? 'page' : undefined}" href="start">start</a></li>
+					<li><a aria-current="{segment === 'intro' ? 'page' : undefined}" href="intro">intro</a></li>
+					<li><a aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a></li>			
+				</div>
+			</div>
+
 		{/if}
+
 	</ul>
 </nav>

@@ -4,7 +4,9 @@
 
 </script>
 
-<style>
+<style lang="scss">
+
+ 	@import '../../static/_variables.scss';
 
 	.phone-container {
 		position: absolute;
@@ -31,9 +33,31 @@
 	    border: 2px solid #303030;
 	}
 
+	@media( max-width: $tablet-width ) {
+		.phone-container {
+			position: absolute;
+			top: 65px;
+			left: 30px;
+		}
+		img {
+			width: 100px;
+			border-radius: 15px;
+			border-top-width: 12px;
+			border-left-width: 8px;
+			border-right-width: 8px;
+			border-bottom-width: 18px;
+		}
+		.phone-button {
+		    width: 10px;
+		    height: 10px;
+		    left: 53px;
+		    bottom: 6px;
+		}
+	}
+
 </style>
 
 <div class="phone-container">
-	<img {src} />
+	<img {src} alt="mobil" />
 	<div class="phone-button"></div>
 </div>

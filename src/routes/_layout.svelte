@@ -19,6 +19,8 @@
 	  top: 0; 
 	  width: 100%;
 	  margin-bottom: 30px;
+	  z-index: 10;
+	  color: red;
 	}
 
 </style>

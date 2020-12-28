@@ -20,7 +20,9 @@
 
 </script>
 
-<style>
+<style lang="scss">
+
+	@import '../../static/_variables.scss';
 
 	row {
 		display: flex;
@@ -70,6 +72,47 @@
 		fill: white;
 	}
 
+	.intro-text-mobile {
+		display: none;
+	}
+	h1 {
+		text-shadow: 2px 2px black;
+	}
+	.title-0 {
+		color: wheat;
+	}
+	.title-1 {
+		color: whitesmoke;
+	}
+	.title-2 {
+		color: cadetblue;
+	}
+
+	@media( max-width: $tablet-width ) {
+		.col-2 {
+			display: none;
+		}
+		.col-1 {
+			width: 100%;
+		}
+		.intro-text-mobile {
+			display: block;
+			width: 80%;
+			margin: 10%;
+			margin-top: 60px;
+			p {
+				color: white;
+			    text-shadow: 2px 2px black;
+			    background: teal;
+			    padding: 20px;
+			    position: absolute;
+			    bottom: -20px;
+			    right: -1px;
+			    left: -1px;
+			}
+		}
+	}
+
 </style>
 
 <svelte:head>
@@ -77,11 +120,18 @@
 </svelte:head>
 
 	<row style="height:100vh">
-		<div class="col-1"></div>
+		<div class="col-1">
+			<div class="intro-text-mobile">
+				{#each intro as text, i}
+					<h1 class="title-{i}">{text}</h1>
+				{/each}
+				<p> {ingress} </p>
+			</div>
+		</div>
 
 		<div class="col-2">
-			{#each intro as text}
-				<h1>{text}</h1>
+			{#each intro as text, i}
+				<h1 class="title-{i}">{text}</h1>
 			{/each}
 
 			<p> {ingress} </p>
@@ -89,7 +139,7 @@
 		</div>
 	</row>
 
-	<div class="icon">
+	<div class="icon" style="display:none">
 		<a href="/projects">
 			<FaArrowAltCircleDown />
 		</a>
