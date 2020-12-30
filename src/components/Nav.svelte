@@ -141,7 +141,7 @@
 		<li on:click={ () => showMenu = !showMenu } >
 			<div class="menu-icon" 
 				 class:up={ showMenu === true }
-				 class:black={ segment === 'projects' }>
+				 class:black={ segment === 'projects' || segment === 'cv' }>
 				<MdMenu />
 			</div>
 			<div class="menu-icon-mobile">
@@ -151,11 +151,12 @@
 
 		{#if showMenu}
 			<div class="options-not-mobile" 	 
-				 class:black={ segment === 'projects' }
+				 class:black={ segment === 'projects' || segment === 'cv' }
 				 transition:fade >
 					<li><a aria-current="{segment === 'start' ? 'page' : undefined}" href="start">start</a></li>
 					<li><a aria-current="{segment === 'intro' ? 'page' : undefined}" href="intro">intro</a></li>
 					<li><a aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a></li>
+					<li><a aria-current="{segment === 'cv' ? 'page' : undefined}" href="cv">cv</a></li>
 			</div>
 
 			<div class="options-mobile"

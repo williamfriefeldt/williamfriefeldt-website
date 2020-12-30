@@ -1,10 +1,10 @@
 <script>
 
-  	import { fade } from "svelte/transition";
+  	import { blur, fly } from "svelte/transition";
   	import { onMount } from "svelte";
   	import FaArrowAltCircleDown from 'svelte-icons/fa/FaArrowAltCircleDown.svelte'
 
-  	let showIntro = true;
+  	let showIntro = false;
 
   	onMount( () => {
   		showIntro = true;
@@ -43,10 +43,11 @@
 	}
 
 	.col-2 {
-		width: 60%;
+		width: 70%;
 		padding: 20px;
 		padding-left: 50px;
 	}
+
 
 	.icon {
 		position: fixed;
@@ -55,21 +56,27 @@
 		width: 100vw;
 		margin-bottom:10px;
     	z-index: 1;
+    	text-align: center;
 	}	
 
-	.icon:hover {
-		height: 70px;
-		padding-top: 20px;
-		cursor: pointer;
-		color: #333;
+	.icon a {
+		background-color: white;
+	    padding: 10px;
+	    border-radius: 15px;
+	    border: 2px solid cadetblue;
+	    text-decoration: none;
+	    color: cadetblue;
+	    font-size: 20px;
+	}
+
+	.icon a:hover {
+		background-color: cadetblue;
+	    border: 2px solid white;
+	    color: white;
 	}
 
 	.intro-container {
 		margin-top: 70px;
-	}
-
-	.icon :global( svg ) {
-		fill: white;
 	}
 
 	.intro-text-mobile {
@@ -106,9 +113,9 @@
 			    background: teal;
 			    padding: 20px;
 			    position: absolute;
-			    bottom: -20px;
-			    right: -1px;
-			    left: -1px;
+			    bottom: 75px;
+			    right: 20px;
+			    left: 20px;
 			}
 		}
 	}
@@ -120,27 +127,51 @@
 </svelte:head>
 
 	<row style="height:100vh">
-		<div class="col-1">
-			<div class="intro-text-mobile">
-				{#each intro as text, i}
-					<h1 class="title-{i}">{text}</h1>
-				{/each}
-				<p> {ingress} </p>
-			</div>
-		</div>
+			{#if showIntro}	
+				<div class="col-1">
+					<div class="intro-text-mobile">
+						<h1 class="title-0"
+							transition:blur|local="{{ duration: 2000, delay: 0 }}">
+							{intro[0]}
+						</h1>
+						<h1 class="title-1"
+							transition:blur|local="{{ duration: 2000, delay: 1500 }}">
+							{intro[1]}
+						</h1>
+						<h1 class="title-2"
+							transition:blur|local="{{ duration: 2000, delay: 3000 }}">
+							{intro[2]}
+						</h1>
+						<p transition:fly|local="{{ y:50, duration: 1500, delay: 4500 }}"> 
+							{ingress} 
+						</p>
+					</div>
+				</div>
 
-		<div class="col-2">
-			{#each intro as text, i}
-				<h1 class="title-{i}">{text}</h1>
-			{/each}
-
-			<p> {ingress} </p>
-
-		</div>
+				<div class="col-2">
+					<h1 class="title-0"
+						transition:blur|local="{{ duration: 2000, delay: 0 }}">
+						{intro[0]}
+					</h1>
+					<h1 class="title-1"
+						transition:blur|local="{{ duration: 2000, delay: 1500 }}">
+						{intro[1]}
+					</h1>
+					<h1 class="title-2"
+						transition:blur|local="{{ duration: 2000, delay: 3000 }}">
+						{intro[2]}
+					</h1>
+					<p transition:fly|local="{{ y:50, duration: 1500, delay: 4500 }}"> 
+						{ingress} 
+					</p>
+				</div>
+			{/if}
 	</row>
-
-	<div class="icon" style="display:none">
-		<a href="/projects">
-			<FaArrowAltCircleDown />
-		</a>
-	</div>
+	{#if showIntro}
+		<div class="icon"
+			 transition:blur|local="{{ duration: 1500, delay: 6000 }}">
+			<a href="/projects">
+				See my portfolio
+			</a>
+		</div>
+	{/if}

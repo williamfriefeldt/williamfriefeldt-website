@@ -10,5 +10,7 @@
 
 </script>
 
-<svelte:component this={PdfViewer} url="./cv-will.pdf"/> 
+<div style="margin-top: 60px">
+	<svelte:component this={PdfViewer} url="./cv-will.pdf"/> 
+</div>
 

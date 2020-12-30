@@ -4,7 +4,6 @@
   	import { onMount } from "svelte";
 
   	import FaArrowAltCircleDown from 'svelte-icons/fa/FaArrowAltCircleDown.svelte'
-  	import * as animateScroll from "svelte-scrollto";
 	import GridMenu from '../components/GridMenu.svelte';
 
 	/* Text variables */
@@ -62,21 +61,27 @@
 		width: 100vw;
 		margin-bottom:10px;
     	z-index: 1;
+    	text-align: center;
 	}	
 
-	.icon:hover {
-		height: 70px;
-		padding-top: 20px;
-		cursor: pointer;
-		color: #333;
+	.icon a {
+		background-color: white;
+	    padding: 10px;
+	    border-radius: 15px;
+	    border: 2px solid cadetblue;
+	    text-decoration: none;
+	    color: cadetblue;
+	    font-size: 20px;
+	}
+
+	.icon a:hover {
+		background-color: cadetblue;
+	    border: 2px solid white;
+	    color: white;
 	}
 
 	.intro-container {
 		margin-top: 70px;
-	}
-
-	.icon :global( svg ) {
-		fill: white;
 	}
 
 </style>
@@ -92,14 +97,13 @@
 				{#each introText as introLine, j}
 					<h1>
 						{#each introLine.text as char, i}
-						{#if showStart}
-							<span transition:fade|local="{{ delay: waitTime + waitTime * i + introLine.wait * waitTime }}"
-								on:introend="{() => {
-									if(i === 22) animationDone = true;
-								}}"
-							>
-								{char[0]}
-							</span>
+							{#if showStart}
+								<span transition:fade|local="{{ delay: waitTime + waitTime * i + introLine.wait * waitTime }}"
+									on:introend="{() => {
+										if(i === 22) animationDone = true;
+									}}">
+										{char[0]}
+								</span>
 							{/if}
 						{/each}
 					</h1>
@@ -112,30 +116,8 @@
 	{#if animationDone}
 		<div class="icon">
 			<a href="/intro">
-				<FaArrowAltCircleDown />
+				Who am I?
 			</a>
 		</div>
 	{/if}
 	
-<!-- <div class="icon" 
-		 class:up="{scrollUp === true }"
-		 on:click={() => {
-		 	/*scrollUp = !scrollUp;
-		 	if( scrollUp ) {
-		 		animateScroll.scrollTo({ element:'.intro-container' });
-		 	} else {
-		 		animateScroll.scrollToTop();
-		 	}*/
-		 }}
-	>
-		
-	</div> --> 
-
-<!-- {#if showIntro}
-
-	<div class="intro-container" transition:fade= {{ duration: 3000 }}>
-		<GridMenu class="intro" />
-	</div>
-
-
-{/if} -->

@@ -8,8 +8,8 @@
 
  .ipad-container {
 	position: absolute;
-	bottom: 50px;
-	left: 400px;
+	top: 60px;
+	right: 18px;
  }
 img {
 	width: 300px;

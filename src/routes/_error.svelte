@@ -6,7 +6,7 @@
 
 	import { onMount } from 'svelte';
     import { goto } from '@sapper/app';
-    onMount(() => goto( error.status === 404 ? 'home' : 'home' ));
+    onMount(() => goto( error.status === 404 ? 'start' : 'start' ));
 </script>
 
 <style>

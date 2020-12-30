@@ -2,6 +2,8 @@
 
 	let src = "poddsok-phone.jpg";
 
+	export let leftPos;
+
 </script>
 
 <style lang="scss">
@@ -10,8 +12,8 @@
 
 	.phone-container {
 		position: absolute;
-		top: 100px;
-		left: 100px;
+		top: 60px;
+		left: var(--left);
 	}
 	img {
 		width: 200px;
@@ -37,7 +39,6 @@
 		.phone-container {
 			position: absolute;
 			top: 65px;
-			left: 30px;
 		}
 		img {
 			width: 100px;
@@ -57,7 +58,7 @@
 
 </style>
 
-<div class="phone-container">
+<div class="phone-container" style="--left: {leftPos}">
 	<img {src} alt="mobil" />
 	<div class="phone-button"></div>
 </div>

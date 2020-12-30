@@ -6,10 +6,11 @@
 
 <style lang="scss">
 
+	@import '../../static/_variables.scss';
+
 	.laptop-container {
 	    position: absolute;
-	    bottom: 70px;
-	    right: 30px;
+	    margin-left: 29%;
 	    z-index: -1;
 	    cursor: pointer;
 	}
@@ -67,6 +68,88 @@
 		background-color: black;
 		margin: 1.5px;
 	}
+
+	@media( max-width: $desktop-width ) {
+		.laptop-container {
+			bottom: 10px;
+		    left: 42%;
+		    margin-left: 0;
+		}
+	}
+
+	@media( max-width: $tablet-width ) {
+		.laptop-container {
+		    position: absolute;
+		    bottom: 60px;
+		    right: 30px;
+		    left: auto;
+		    z-index: -1;
+		    cursor: pointer;
+		}
+
+		.laptop-screen {
+			width: 176px;
+			height: 117.5px;
+			background-color: lightgrey;
+			border-radius: 12.5px 12.5px 0px 0px;
+			border-right: 6px solid gray;
+		}
+
+		.laptop-innerscreen {
+			width: 150px;
+			height: 125px;
+			margin-left: 25px;
+			margin-top: 25px;
+			img { 
+				width: 100%;
+				margin-top: 10px;
+				margin-left: -10px;
+			}
+		}
+
+		.laptop-keyboard {
+			border-top: 1px solid black;
+			margin-left: -21.5px;
+			transform: skewX(-30deg);
+			width: 176px;
+			height: 75px;
+			background-color: lightgrey;
+			border-radius: 0px 0px 12.5px 12.5px;
+			border-right: 6px solid gray;
+		}
+
+		.laptop-keypad {
+			width: 50px;
+		    height: 15px;
+		    border: 0.5px solid black;
+		    bottom: 5px;
+		    position: absolute;
+		    left: 65px;
+		    border-radius: 15%;	
+		}
+		.laptop-keys {
+			width: 152px;
+		    height: 37px;
+		    border: 0.5px solid black;
+		    top: 10px;
+		    position: absolute;
+		    left: 15px;
+		}
+		.laptop-key {
+			width: 4.5px;
+			height: 4.5px;
+			background-color: black;
+			margin: 0.75px;
+		}
+	}
+
+	@media( max-width: $large-phone ) {
+		.laptop-container {
+			right: 100px;
+			bottom: 20px;
+		}
+	}
+
 </style>
 
 <div class="laptop-container">
