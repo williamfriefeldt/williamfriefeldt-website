@@ -1,0 +1,58 @@
+{
+  "bundler": "rollup",
+  "shimport": "2.0.4",
+  "assets": {
+    "main": "client.3d20db51.js"
+  },
+  "css": {
+    "main": [
+      "client-492ec924.css"
+    ]
+  },
+  "dependencies": {
+    "index.svelte": [
+      "index.1972fe2b.js",
+      "inject_styles.5607aec6.js"
+    ],
+    "animation.svelte": [
+      "animation.d2011c27.js",
+      "inject_styles.5607aec6.js",
+      "animation-7698a693.css"
+    ],
+    "projects.svelte": [
+      "projects.206e6c3b.js",
+      "inject_styles.5607aec6.js",
+      "projects-c3f31336.css"
+    ],
+    "about.svelte": [
+      "about.8a5edfe6.js",
+      "inject_styles.5607aec6.js"
+    ],
+    "intro.svelte": [
+      "intro.4b45d4fc.js",
+      "FaArrowAltCircleDown.5ebd08d9.js",
+      "inject_styles.5607aec6.js",
+      "intro-2aaec45b.css"
+    ],
+    "start.svelte": [
+      "start.a9883d92.js",
+      "FaArrowAltCircleDown.5ebd08d9.js",
+      "inject_styles.5607aec6.js",
+      "start-c094e5df.css"
+    ],
+    "blog/index.svelte": [
+      "index.4baf4f2b.js",
+      "inject_styles.5607aec6.js",
+      "index-c31c4e6e.css"
+    ],
+    "blog/[slug].svelte": [
+      "[slug].11d3219d.js",
+      "inject_styles.5607aec6.js",
+      "[slug]-184a2e34.css"
+    ],
+    "cv.svelte": [
+      "cv.32d540d9.js",
+      "inject_styles.5607aec6.js"
+    ]
+  }
+}

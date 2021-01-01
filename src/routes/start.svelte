@@ -60,24 +60,24 @@
 		height: 50px;
 		width: 100vw;
 		margin-bottom:10px;
-    	z-index: 1;
-    	text-align: center;
+  	z-index: 1;
+  	text-align: center;
 	}	
 
 	.icon a {
 		background-color: white;
-	    padding: 10px;
-	    border-radius: 15px;
-	    border: 2px solid cadetblue;
-	    text-decoration: none;
-	    color: cadetblue;
-	    font-size: 20px;
+    padding: 15px;
+    border-radius: 40px;
+    border: 2px solid cadetblue;
+    text-decoration: none;
+    color: cadetblue;
+    font-size: 20px;
 	}
 
 	.icon a:hover {
 		background-color: cadetblue;
-	    border: 2px solid white;
-	    color: white;
+    border: 2px solid white;
+    color: white;
 	}
 
 	.intro-container {

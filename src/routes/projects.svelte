@@ -91,6 +91,21 @@
     	}
 	}
 
+	@media( min-width: $large-desktop ) {
+		ul {
+			margin-right: 130px;
+			margin-top: 200px;
+		}
+		.hide-mobile {
+			margin-top: 205px;
+		}
+		.projects-info-container {
+			font-size: 20px;
+			padding-left: 5%;
+			padding-right: 3%
+		}
+	}
+
 	@media( max-width: $desktop-width ) {
 		ul {
 			width: auto;
@@ -191,6 +206,7 @@
 				{#each projects as project, i}
 					<li in:fly="{{ y: -50, duration: 2000, delay: 3500 + (i+1)*1000 }}"
 						on:click={ () => {
+
 							animateScroll.scrollTo({ 
 								element:'.poddsok-container',
 								scrollX: true,
