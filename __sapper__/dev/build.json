@@ -2,7 +2,7 @@
   "bundler": "rollup",
   "shimport": "2.0.4",
   "assets": {
-    "main": "client.3d20db51.js"
+    "main": "client.ceafd022.js"
   },
   "css": {
     "main": [
@@ -11,47 +11,47 @@
   },
   "dependencies": {
     "index.svelte": [
-      "index.1972fe2b.js",
+      "index.67e5281c.js",
       "inject_styles.5607aec6.js"
     ],
     "animation.svelte": [
-      "animation.d2011c27.js",
+      "animation.3b858c0b.js",
       "inject_styles.5607aec6.js",
       "animation-7698a693.css"
     ],
     "projects.svelte": [
-      "projects.206e6c3b.js",
+      "projects.c8c88253.js",
       "inject_styles.5607aec6.js",
-      "projects-c3f31336.css"
+      "projects-ecfb28a5.css"
     ],
     "about.svelte": [
-      "about.8a5edfe6.js",
+      "about.55494a84.js",
       "inject_styles.5607aec6.js"
     ],
     "intro.svelte": [
-      "intro.4b45d4fc.js",
-      "FaArrowAltCircleDown.5ebd08d9.js",
+      "intro.c2e3169d.js",
+      "FaArrowAltCircleDown.11a27e95.js",
       "inject_styles.5607aec6.js",
       "intro-2aaec45b.css"
     ],
     "start.svelte": [
-      "start.a9883d92.js",
-      "FaArrowAltCircleDown.5ebd08d9.js",
+      "start.bd8a0f9c.js",
+      "FaArrowAltCircleDown.11a27e95.js",
       "inject_styles.5607aec6.js",
       "start-c094e5df.css"
     ],
     "blog/index.svelte": [
-      "index.4baf4f2b.js",
+      "index.0b9e97c6.js",
       "inject_styles.5607aec6.js",
       "index-c31c4e6e.css"
     ],
     "blog/[slug].svelte": [
-      "[slug].11d3219d.js",
+      "[slug].6139ed32.js",
       "inject_styles.5607aec6.js",
       "[slug]-184a2e34.css"
     ],
     "cv.svelte": [
-      "cv.32d540d9.js",
+      "cv.79c11be4.js",
       "inject_styles.5607aec6.js"
     ]
   }
