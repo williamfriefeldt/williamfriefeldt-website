@@ -9,10 +9,11 @@
 	@import '../../static/_variables.scss';
 
 	.laptop-container {
-	    position: absolute;
-	    margin-left: 29%;
-	    z-index: -1;
-	    cursor: pointer;
+    position: absolute;
+    z-index: -1;
+    cursor: pointer;
+    right: 6%;
+    bottom: 6%;
 	}
 
 	.laptop-screen {

@@ -59,16 +59,15 @@
 		bottom: 0;
 		height: 50px;
 		width: 100vw;
-		margin-bottom:10px;
+		margin-bottom: 20px;
   	z-index: 1;
   	text-align: center;
 	}	
 
 	.icon a {
 		background-color: white;
-    padding: 15px;
     border-radius: 40px;
-    border: 2px solid cadetblue;
+    padding: 8px 30px 8px 30px;
     text-decoration: none;
     color: cadetblue;
     font-size: 20px;
@@ -76,12 +75,17 @@
 
 	.icon a:hover {
 		background-color: cadetblue;
-    border: 2px solid white;
     color: white;
 	}
 
 	.intro-container {
 		margin-top: 70px;
+	}
+
+	@media( min-width: $large-desktop ) {
+		h1 {
+			font-size: 60px;
+		}
 	}
 
 </style>

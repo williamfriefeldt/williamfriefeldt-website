@@ -156,6 +156,7 @@
 					<li><a aria-current="{segment === 'start' ? 'page' : undefined}" href="start">start</a></li>
 					<li><a aria-current="{segment === 'intro' ? 'page' : undefined}" href="intro">intro</a></li>
 					<li><a aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a></li>
+					<li><a aria-current="{segment === 'skills' ? 'page' : undefined}" href="skills">skills</a></li>		
 					<li><a aria-current="{segment === 'cv' ? 'page' : undefined}" href="cv">cv</a></li>
 			</div>
 
@@ -166,7 +167,9 @@
 				 <div class="hide-on-mobile">
 					<li><a aria-current="{segment === 'start' ? 'page' : undefined}" href="start">start</a></li>
 					<li><a aria-current="{segment === 'intro' ? 'page' : undefined}" href="intro">intro</a></li>
-					<li><a aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a></li>			
+					<li><a aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a></li>
+					<li><a aria-current="{segment === 'skills' ? 'page' : undefined}" href="skills">skills</a></li>		
+					<li><a aria-current="{segment === 'cv' ? 'page' : undefined}" href="cv">cv</a></li>	
 				</div>
 			</div>
 

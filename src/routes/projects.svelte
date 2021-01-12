@@ -19,6 +19,7 @@
 	];
 
 	export let leftPos = '50px';
+	
 	let opacityContainers = {
 		first: 1,
 		second: 1
@@ -49,34 +50,38 @@
 
 	.projects-info-container {
 		opacity: var(--opacity);
-		display: flex;
- 		align-items: center;
- 		justify-content: center;
 	}
 	.projects-info {
-		padding: 20px;
-		margin-right: 400px;
+		padding-left: 4%;
 		margin-left: 280px;
+		margin-top: 20px;
   		p {
   			margin-block-start: 0;
+  			font-size: 20px;
+  			text-align: justify;
+  			width: 80%;
   		}
 	}
 	.scrollX-opacity {
 		opacity: var(--opacity);
 	}
-	h2, h3 {
+	h1, h3 {
 		color: cadetblue;
-		text-align: center;
 	}
 	h3 {
 		text-align: center;
 	}
+	h1 {
+		margin-top: 60px;
+		margin-bottom: 1%;
+		width: 80%;
+		font-size: 35px;
+	}
 	ul {
-		width: 30%;
-    	margin-right: 3%;
-    	margin-top: 80px;
-    	float: right;
     	list-style: none;
+    	margin: 10%;
+    	margin-top: 20%;
+    	padding: 0;
     	li {
     		padding: 10px;
     		background-color: cadetblue;
@@ -90,80 +95,85 @@
     		font-size: 20px;
     	}
 	}
-
-	@media( min-width: $large-desktop ) {
-		ul {
-			margin-right: 130px;
-			margin-top: 200px;
-		}
-		.hide-mobile {
-			margin-top: 205px;
-		}
-		.projects-info-container {
-			font-size: 20px;
-			padding-left: 5%;
-			padding-right: 3%
-		}
+	.ipad-placeholder {
+		display: block;
+    width: 450px;
+    height: 310px;
+		float: right;
 	}
 
-	@media( max-width: $desktop-width ) {
-		ul {
-			width: auto;
-			margin-left: 260px;
-			margin-right: 25px;
-			float: none;
-			margin-top: 0;
+	@media( min-width: $large-desktop ) {	
+		.hide-mobile {
+			margin-top: 205px;
+			display: block !important;
 		}
+		ul {
+			width: 57%;
+			margin-top: 15%;
+    	margin-left: 8%;
+    	margin-right: 1%;
+		}
+		.ipad-placeholder {
+			width: 550px;
+		}
+		h1 {
+			font-size: 40px;
+		}
+	}
+	.hide-mobile, .iphone-placeholder {
+		display: none;
+	}
+	@media( max-width: $desktop-width ) {
 		h2 {
 			text-align: right;
     		margin-right: 20px;
 		}
-		.hide-ipad, .projects-info-container {
+		.hide-ipad, .ipad-placeholder {
 			display: none;
+		}
+		ul {
+			margin-top: 24%;
 		}
 	}
 
 	@media( max-width: $tablet-width ) {
-		.projects-info-container {
-			display: block;
-		}
 		ul {
-			margin-top: 100px;
-			margin-left: 0px;
-			h3 {
-				width: 40%;
-			}
-			li {
-				width: 40%;
-			}
+			margin-top: 50px;
 		}
 		h2 {
 			text-align:center;
 			margin-right: 0;
 		}
 		.projects-info {
-		    width: auto;
+				margin-left: 5%;
 		    margin-top: -20px;
-		    margin-left: 165px;
-		    box-shadow: none;
-		    background-color: transparent;
 		    margin-right: 10px;
-		    font-size: 3.5vw;
+		    p {
+		    	font-size: 18px;
+		    	width: 90%;
+		    }
+		}
+		h1 {
+			font-size: 26px;
+			margin-top: 75px;
+			width: 90%;
+		}
+		.iphone-placeholder {
+			width: 185px;
+    	height: 285px;
+    	float: left;
+    	display: block;
+		}
+	} 
+	@media( max-width: $large-phone ) {
+		.projects-info p {
+			font-size: 16px;
+			text-align: inherit;
 		}
 	}
-
-	@media( max-width: $large-phone ) {
-		ul {
-			width: auto;
-			margin-right: 35px;
-			text-align: center;
-			margin-top: -25px;
-			h3, li {
-				width: auto;
-			}
-		}
-		.hide-mobile {
-			display: none;
+	@media( max-width: $medium-phone ) {
+		h1 {
+			font-size: 22px;
 		}
 	}
 </style>
@@ -171,32 +181,30 @@
 <div class="scrollXwindow">
 	<div class="projects-container">
 
-		<h2>My portfolio</h2>
-
 		{#if showItems}
 			<div transition:fade|local="{{ duration: 1000, delay: 2000 }}">
 				<Phone {leftPos} />
 			</div>
 
+			<div class="ipad-placeholder"></div>
+			<div class="iphone-placeholder"></div>
+
 			<div class="projects-info-container"
 				 style="--opacity: {opacityContainers.first}"
 				 transition:fade|local="{{ duration: 1000, delay: 1000 }}">
+
 				<div class="projects-info">
+
+					<h1>My portfolio</h1>
 					<p>
 						I've been developing web applications for busniess, for government, for startup
 						and of course for fun. Using different technologies, a creative mind and talented 
 						colleagues I've manage to create smooth and responsive applications for both desktop 
 						and mobile. I will now share some of my most successful projects!
 					</p>
+
 				</div>
 			</div>
-
-			<div class="hide-ipad scrollX-opacity" 
-				 style="--opacity: {opacityContainers.second}"
-				 transition:fade|local="{{ duration: 1000, delay: 4000 }}">
-				<IPad />
-			</div>
-
 
 			<ul class="scrollX-opacity"
 				style="--opacity: {opacityContainers.second}">
@@ -219,6 +227,12 @@
 					</li>
 				{/each}
 			</ul>
+
+			<div class="hide-ipad scrollX-opacity" 
+				 style="--opacity: {opacityContainers.second}"
+				 transition:fade|local="{{ duration: 1000, delay: 4000 }}">
+				<IPad />
+			</div>
 
 			<div class="hide-mobile scrollX-opacity" 
 				 style="--opacity: {opacityContainers.first}"

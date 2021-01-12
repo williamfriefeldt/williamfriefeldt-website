@@ -2,21 +2,21 @@
 
   	import { blur, fly } from "svelte/transition";
   	import { onMount } from "svelte";
-  	import FaArrowAltCircleDown from 'svelte-icons/fa/FaArrowAltCircleDown.svelte'
 
   	let showIntro = false;
 
-  	onMount( () => {
-  		showIntro = true;
-  	});
+  	onMount( () => showIntro = true );
 
-	let ingress = 'Find out who I am, my journey and values. When I lived in England and walked in with the English national team in a game vs Sweden. Or when ate a scorpion with a random German traveling alone in Bangkok. But mostly, when I first learned coding and a new world opened up!';
-
-	let intro = [
-		'A developer.',
-		'A creator.',
-		'But to most people, a friend.'
-	];
+		let ingress = [
+			"I'm a very positive, curious and happy person. I think that's why I lived in London and Taiwan, traveled alone in Asia and been very involved in the student life at the Royal Institute of Technology. I've been eating scorpions on the streets of Bangkok and participating as a mascot at Old Trafford in a game between Sweden and England. I like to meet new people and put myself in new situations.",
+			"Maybe it's all these things that made me a software developer, a good one. I think creativity and curiosity is very important along with precision and an eye for design. I think my calm personality together with my eager for learning new things took me here and will take me even further!"
+			];
+ 
+		let intro = [
+			'A developer.',
+			'A creator.',
+			'But to most people, a friend.'
+		];
 
 </script>
 
@@ -50,20 +50,19 @@
 
 
 	.icon {
-		position: fixed;
-		bottom: 0;
 		height: 50px;
 		width: 100vw;
-		margin-bottom:10px;
+		margin-bottom: 20px;
   	z-index: 1;
   	text-align: center;
+  	position: fixed;
+  	bottom: 0;
 	}	
 
 	.icon a {
 		background-color: white;
-    padding: 15px;
     border-radius: 40px;
-    border: 2px solid cadetblue;
+    padding: 8px 30px 8px 30px;
     text-decoration: none;
     color: cadetblue;
     font-size: 20px;
@@ -71,12 +70,12 @@
 
 	.icon a:hover {
 		background-color: cadetblue;
-    border: 2px solid white;
     color: white;
-}
+    font-size: 22px;
+  }
 
 	.intro-container {
-		margin-top: 70px;
+		height: 100vh;
 	}
 
 	.intro-text-mobile {
@@ -84,6 +83,10 @@
 	}
 	h1 {
 		text-shadow: 2px 2px black;
+		font-size: 50px;
+	}
+	p {
+		font-size: 20px;
 	}
 	.title-0 {
 		color: wheat;
@@ -93,6 +96,24 @@
 	}
 	.title-2 {
 		color: cadetblue;
+	}
+
+	@media( min-width: $large-desktop ) {
+		h1 {
+			font-size: 60px;
+		}
+		p,a {
+			font-size: 25px;
+		}
+	}
+
+	@media( max-width: $desktop-width ) {
+		h1 { 
+			font-size: 40px;
+		}
+		p {
+			font-size: 17px;
+		}
 	}
 
 	@media( max-width: $tablet-width ) {
@@ -112,10 +133,11 @@
 		    text-shadow: 2px 2px black;
 		    background: teal;
 		    padding: 20px;
-		    position: absolute;
-		    bottom: 75px;
-		    right: 20px;
-		    left: 20px;
+		    margin-left: -5%;
+		    margin-right: -5%;
+			}
+			.mobile-ingress {
+				margin-top: 50%;
 			}
 		}
 	}
@@ -123,10 +145,10 @@
 </style>
 
 <svelte:head>
-	<title>WF</title>
+	<title>William Friefeldt</title>
 </svelte:head>
 
-	<row style="height:100vh">
+	<row class="intro-container">
 			{#if showIntro}	
 				<div class="col-1">
 					<div class="intro-text-mobile">
@@ -142,9 +164,10 @@
 							transition:blur|local="{{ duration: 2000, delay: 3000 }}">
 							{intro[2]}
 						</h1>
-						<p transition:fly|local="{{ y:50, duration: 1500, delay: 4500 }}"> 
-							{ingress} 
-						</p>
+						<div class="mobile-ingress" transition:fly|local="{{ y:50, duration: 1500, delay: 4500 }}"> 
+							<p>{ingress[0]}</p>
+							<p>{ingress[1]}</p> 
+						</div>
 					</div>
 				</div>
 
@@ -161,9 +184,10 @@
 						transition:blur|local="{{ duration: 2000, delay: 3000 }}">
 						{intro[2]}
 					</h1>
-					<p transition:fly|local="{{ y:50, duration: 1500, delay: 4500 }}"> 
-						{ingress} 
-					</p>
+					<div transition:fly|local="{{ y:50, duration: 1500, delay: 4500 }}"> 
+						<p>{ingress[0]}</p>
+						<p>{ingress[1]}</p> 
+					</div>
 				</div>
 			{/if}
 	</row>
