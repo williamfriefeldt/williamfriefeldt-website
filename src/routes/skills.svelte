@@ -35,7 +35,7 @@
 	@import '../../static/variables';
 
 	.input-container {
-		margin-top: 35%;
+		margin-top: 20em;
 		justify-content: center;
 		display: flex;
 		input {
@@ -52,37 +52,53 @@
 		}
 	}
 
-	p {
+	p, h3 {
 		text-align: center;
+	}
+
+	.circle-div {
+	    width: 18em;
+	    height: 16em;
+	    border-radius: 50%;
+	    padding-top: 2%;
+	    font-size: 0.75em;
 	}
 
 	.frameworks-container {
 		position: absolute;
 		top: 7.5%;
 		left: 10%;
-		font-size: 20px;
+		background: tomato;
+	    color: papayawhip;
 	}
 	.languages-container{
 		position: absolute;
-		top: 1%;
+		top: 7.5%;
 		left: 30%;
-		font-size: 20px;
+		background: aquamarine;
+    	color: brown;
+    	padding: 1%;	
 	}
 	.libraries-container{
 		position: absolute;
-		top: 1%;
+		top: 7.5%;
 		right: 25%;
-		font-size: 20px;
+		background: wheat;
+    	color: teal;
 	}
 	.versionNdocumentation-container{
 		position: absolute;
 		top: 7.5%;
 		right: 10%;
-		font-size: 20px;
 	}
 
 	.searchItem {
 		color: wheat;
+	}
+
+	.second-row {
+		top: auto;
+		bottom: 10%;
 	}
 
 	@media( min-width: $large-desktop ) {
@@ -124,28 +140,56 @@
 	{/if}
 	
 	{#if showSkills}
-		<div transition:fade|local="{{ delay: 1500, duration: 1000 }}" class="frameworks-container">
+		<div transition:fade|local="{{ delay: 1500, duration: 1000 }}" class="frameworks-container circle-div">
 			<h3> JS frameworks </h3>
 			{#each frameworks as framework}
 				<p class:searchItem={filterList.find( item => item === framework )}>{framework}</p>
 			{/each}
 		</div>
 
-		<div class="languages-container">
-			<h3> Programming languages </h3>
+		<div class="languages-container circle-div">
+			<h3> Programming <br /> languages </h3>
 			{#each languages as language}
 				<p class:searchItem={filterList2.find( item => item === language )}>{language}</p>
 			{/each}
 		</div>
 
-		<div class="libraries-container">
+		<div class="libraries-container circle-div">
 			<h3> Libraries </h3>
 			{#each libraries as library }
 				<p class:searchItem={filterList3.find( item => item === library )}>{library}</p>
 			{/each}
 		</div>
 
-		<div class="versionNdocumentation-container">
+		<div class="versionNdocumentation-container circle-div">
+			<h3> Software maintenance </h3>
+			{#each versionNdocumentation as software }
+				<p class:searchItem={filterList4.find( item => item === software )}>{software}</p>
+			{/each}
+		</div>
+
+			<div transition:fade|local="{{ delay: 1500, duration: 1000 }}" class="frameworks-container circle-div second-row">
+			<h3> JS frameworks </h3>
+			{#each frameworks as framework}
+				<p class:searchItem={filterList.find( item => item === framework )}>{framework}</p>
+			{/each}
+		</div>
+
+		<div class="languages-container circle-div second-row">
+			<h3> Programming <br /> languages </h3>
+			{#each languages as language}
+				<p class:searchItem={filterList2.find( item => item === language )}>{language}</p>
+			{/each}
+		</div>
+
+		<div class="libraries-container circle-div second-row">
+			<h3> Libraries </h3>
+			{#each libraries as library }
+				<p class:searchItem={filterList3.find( item => item === library )}>{library}</p>
+			{/each}
+		</div>
+
+		<div class="versionNdocumentation-container circle-div second-row">
 			<h3> Software maintenance </h3>
 			{#each versionNdocumentation as software }
 				<p class:searchItem={filterList4.find( item => item === software )}>{software}</p>
